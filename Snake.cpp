@@ -27,8 +27,8 @@ void Snake::move_snake()
 		case 'r': pos.X += vel; break; //direita
 	}
 
-	if (pos.X > Largura - 2) pos.X = 1;
-	else if (pos.X < 1) pos.X = Largura - 2;
+	if (pos.X > Width - 2) pos.X = 1;
+	else if (pos.X < 1) pos.X = Width - 2;
 
 	body.push_back(pos);
 	if (body.size() > len) body.erase(body.begin());
@@ -44,7 +44,7 @@ bool Snake::eaten(COORD food_pos)
 
 bool Snake::collided() //funcao para quando colidir com as paredes laterais voltar a aparecer a cobra
 {
-	if (pos.X < 1 || pos.X > Largura-2 || pos.Y < 1 || pos.Y > Altura-2) return true;
+	if (pos.X < 1 || pos.X > Width-2 || pos.Y < 1 || pos.Y > Height-2) return true;
 	
 	return false;
 

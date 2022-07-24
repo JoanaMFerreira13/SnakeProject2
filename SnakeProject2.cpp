@@ -8,8 +8,8 @@
 #include "Snake.h"
 #include "Food.h"
 
-#define Largura 50
-#define Altura 25
+#define Width 50
+#define Height 25
 
 #define KB_UP 72 //para podermos usar as teclas das setas do teclado para movimentar a cobra
 #define KB_DOWN 80
@@ -20,7 +20,7 @@
 
 using namespace std;
 
-Snake snake({ Largura / 2, Altura / 2 }, 1);
+Snake snake({ Width / 2, Height / 2 }, 1);
 Food food;
 
 int score;
@@ -35,28 +35,28 @@ void board() //funcao para definir a área de jogo
     cout << "\t" << "Score: " << score << "\n\n"; //para inserir um score no início da consola
     
 
-    for (int i = 0; i < Altura; i++) //controla o numero de linhas
+    for (int i = 0; i < Height; i++) //controla o numero de linhas
     {
         cout << "\t.";
-        for (int j = 0; j < Largura - 2; j++) //controla a largura, dentro deste ciclo irá imprimir o que se encontra abaixo dependendo da situação
+        for (int j = 0; j < Width - 2; j++) //controla a largura, dentro deste ciclo irá imprimir o que se encontra abaixo dependendo da situação
         {
             
-            if (i == 0 || i == Altura - 1) cout << '#';
+            if (i == 0 || i == Height - 1) cout << '#';
             else if (i == snake_pos.Y && j + 1 == snake_pos.X) cout << "0";
             else if (i == food_pos.Y && j + 1 == food_pos.X) cout << "@";
             else
             {
-                bool isBodyPart = false;
+                bool body_part = false;
                 for (int k = 0; k < snake_body.size()-1; k++)
                 {
                     if (i == snake_body[k].Y && j + 1 == snake_body[k].X)
                     {
                         cout << 'o';
-                        isBodyPart = true;   //caso a cobra acerte na fruta aumentar o corpo com o simbolo 'o' por cada fruta que colida/ coma
+                        body_part = true;   //caso a cobra acerte na fruta aumentar o corpo com o simbolo 'o' por cada fruta que colida/ coma
                         break;
                     }
                 }
-                if (!isBodyPart) cout << ' ';
+                if (!body_part) cout << ' ';
             }
         }
         cout << ".\n";

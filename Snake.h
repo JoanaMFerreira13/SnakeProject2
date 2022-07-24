@@ -4,8 +4,8 @@
 #include <windows.h>
 #include <vector>
 
-#define Largura 50
-#define Altura 25
+#define Width 50
+#define Height 25
 
 using namespace std;
 

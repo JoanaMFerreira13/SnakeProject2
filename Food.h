@@ -3,8 +3,8 @@
 #include <Windows.h>
 #include <cstdlib> //para aparecer de forma aleatória a comida
 
-#define Largura 50
-#define Altura 25
+#define Width 50
+#define Height 25
 
 class Food
 {
